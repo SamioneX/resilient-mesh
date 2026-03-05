@@ -1,4 +1,4 @@
-namespace: resilent-mesh
+namespace: resilient-mesh
 resources:
   - namespace.yml
   - user-deployment.yml

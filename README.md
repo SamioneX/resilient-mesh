@@ -1,6 +1,6 @@
-# Resilent Mesh: Chaos-Resilient Banking Core
+# Resilient Mesh: Chaos-Resilient Banking Core
 
-Resilent Mesh is a Java 21 distributed banking simulation focused on three engineering themes:
+Resilient Mesh is a Java 21 distributed banking simulation focused on three engineering themes:
 
 - Reliability under partial failures
 - Observability for fast diagnosis

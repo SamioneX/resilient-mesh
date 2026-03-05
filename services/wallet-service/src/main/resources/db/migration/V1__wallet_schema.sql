@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS wallets (
+  id BIGSERIAL PRIMARY KEY,
+  user_id VARCHAR(64) NOT NULL UNIQUE,
+  balance NUMERIC(19,2) NOT NULL,
+  currency VARCHAR(8) NOT NULL,
+  version BIGINT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL,
+  updated_at TIMESTAMPTZ NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS wallet_transactions (
+  id BIGSERIAL PRIMARY KEY,
+  idempotency_key VARCHAR(128) NOT NULL UNIQUE,
+  user_id VARCHAR(64) NOT NULL,
+  amount NUMERIC(19,2) NOT NULL,
+  status VARCHAR(32) NOT NULL,
+  balance_after NUMERIC(19,2) NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL
+);

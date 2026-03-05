@@ -81,7 +81,7 @@ Then open:
 ## Project Milestones
 
 - [x] Milestone 0: Core platform scaffold (3 services, Java 21, virtual threads, resilience, observability, Kubernetes baseline)
-- [ ] Milestone 1: Load testing + benchmark report (virtual threads vs platform threads)
-- [ ] Milestone 2: Data consistency hardening (PostgreSQL, idempotency keys, optimistic locking)
+- [x] Milestone 1: Load testing + benchmark report (virtual threads vs platform threads)
+- [x] Milestone 2: Data consistency hardening (PostgreSQL, idempotency keys, optimistic locking)
 - [ ] Milestone 3: Distributed tracing + incident dashboard (OpenTelemetry + Grafana)
 - [ ] Milestone 4: Chaos engineering + custom-metric autoscaling (Prometheus Adapter + fault injection)

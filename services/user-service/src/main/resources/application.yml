@@ -6,7 +6,7 @@ spring:
     name: user-service
   threads:
     virtual:
-      enabled: true
+      enabled: ${APP_VIRTUAL_THREADS_ENABLED:true}
 
 management:
   endpoint:

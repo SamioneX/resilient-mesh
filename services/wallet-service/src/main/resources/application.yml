@@ -6,7 +6,19 @@ spring:
     name: wallet-service
   threads:
     virtual:
-      enabled: true
+      enabled: ${APP_VIRTUAL_THREADS_ENABLED:true}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/walletdb}
+    username: ${SPRING_DATASOURCE_USERNAME:wallet}
+    password: ${SPRING_DATASOURCE_PASSWORD:wallet}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
 
 clients:
   user:

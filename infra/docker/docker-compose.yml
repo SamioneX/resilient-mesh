@@ -1,0 +1,49 @@
+version: '3.9'
+services:
+  user-service:
+    build:
+      context: ../..
+      dockerfile: services/user-service/Dockerfile
+    ports:
+      - "8081:8081"
+
+  wallet-service:
+    build:
+      context: ../..
+      dockerfile: services/wallet-service/Dockerfile
+    environment:
+      - CLIENTS_USER_BASE_URL=http://user-service:8081
+    ports:
+      - "8082:8082"
+    depends_on:
+      - user-service
+
+  transaction-service:
+    build:
+      context: ../..
+      dockerfile: services/transaction-service/Dockerfile
+    environment:
+      - CLIENTS_WALLET_BASE_URL=http://wallet-service:8082
+    ports:
+      - "8083:8083"
+    depends_on:
+      - wallet-service
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ../prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ../grafana/provisioning:/etc/grafana/provisioning:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus

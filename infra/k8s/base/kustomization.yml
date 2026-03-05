@@ -1,0 +1,10 @@
+namespace: resilent-mesh
+resources:
+  - namespace.yml
+  - user-deployment.yml
+  - user-service.yml
+  - wallet-deployment.yml
+  - wallet-service.yml
+  - wallet-serviceaccount.yml
+  - transaction-deployment.yml
+  - transaction-service.yml
